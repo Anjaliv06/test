@@ -69,7 +69,6 @@ function StepRow({
 
 /* ---------- visuals ---------- */
 
-function OneDriveVisual() {
 /**
  * OneDrive — "Gravity well of personal files"
  * Meaning: scattered personal PowerPoints across folders get pulled
