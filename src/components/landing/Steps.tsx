@@ -221,7 +221,9 @@ function SharePointVisual() {
         ))}
       </svg>
 
-      {sites.map((s, i) => (
+      {sites.map((s, i) => {
+        const Icon = s.Icon;
+        return (
         <div
           key={s.label}
           className="absolute -translate-x-1/2 -translate-y-1/2 text-center"
@@ -254,7 +256,7 @@ function SharePointVisual() {
                   : undefined
               }
             >
-              <s.Icon
+              <Icon
                 className={s.center ? "h-6 w-6 text-teal" : "h-5 w-5 text-teal"}
                 strokeWidth={2}
               />
@@ -264,7 +266,8 @@ function SharePointVisual() {
             {s.label}
           </div>
         </div>
-      ))}
+        );
+      })}
 
       <div className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-medium uppercase tracking-[0.18em] text-ink-soft/60">
         Silos dissolve → knowledge flows
