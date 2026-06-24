@@ -1,29 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Landing } from "@/components/landing/Landing";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Sanitana AI — Presentation Intelligence" },
+      {
+        name: "description",
+        content:
+          "Search, understand and interact with every PowerPoint across OneDrive and SharePoint — instantly, through AI.",
+      },
+      { property: "og:title", content: "Sanitana AI — Presentation Intelligence" },
+      {
+        property: "og:description",
+        content:
+          "An AI knowledge workspace for your organization's presentations. One conversation away from every insight.",
+      },
     ],
   }),
-  component: Index,
+  component: Landing,
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
