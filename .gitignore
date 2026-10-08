@@ -1,5 +1,50 @@
+# Node modules
+/node_modules/
 
+# Dependency lock files
+package-lock.json
+bun.lock
+bunfig.toml
 
-# Dynamic Exclusions by Ingestion Agent
+# Build output
+/dist
+/frontend/dist
+
+# Environment variables
+/.env
+/.env.local
+/.env
+/.env.local
+
+# IDE & Editor configs
+/.vscode/
+/.idea/
+/.DS_Store
+/.eslintcache
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Specific to Git
+/.git/
+
+# Data files (documents, PDFs, etc.)
+/data/
+# Assuming any folder named 'data' with document files
+/data/*.{docx,pdf,pptx,xlsx}
+
+# Others
+/.cache
+/.cache-loader/
+
+# Dynamic exclusions by ingestion agent
 .env
-.keys
+.pem
+.env.
+.key
