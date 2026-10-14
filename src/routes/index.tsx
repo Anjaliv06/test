@@ -1,5 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Landing } from "@/components/landing/Landing";
+import { RequireAuth } from "@/components/auth/RequireAuth";
+
+function HomePage() {
+  return (
+    <RequireAuth>
+      <Landing />
+    </RequireAuth>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,5 +27,5 @@ export const Route = createFileRoute("/")({
       },
     ],
   }),
-  component: Landing,
+  component: HomePage,
 });

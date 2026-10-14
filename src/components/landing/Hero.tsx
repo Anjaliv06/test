@@ -1,12 +1,45 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Play, Zap, Sparkles } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { useRef } from "react";
 
 const slides = [
-  { title: "Quarterly Business Review", tag: "Q4 2025", colors: ["#7DD3FC", "#A5F3FC"], top: "8%", left: "4%", rotate: -8, depth: 0.3 },
-  { title: "Healthcare Analytics", tag: "Strategy", colors: ["#5EEAD4", "#67E8F9"], top: "62%", left: "2%", rotate: 6, depth: 0.5 },
-  { title: "Product Strategy 2026", tag: "Roadmap", colors: ["#A78BFA", "#C4B5FD"], top: "12%", left: "78%", rotate: 7, depth: 0.4 },
-  { title: "Financial Forecast", tag: "Finance", colors: ["#FCA5A5", "#FDBA74"], top: "68%", left: "80%", rotate: -5, depth: 0.6 },
+  {
+    title: "Quarterly Business Review",
+    tag: "Q4 2025",
+    colors: ["#7DD3FC", "#A5F3FC"],
+    top: "8%",
+    left: "4%",
+    rotate: -8,
+    depth: 0.3,
+  },
+  {
+    title: "Healthcare Analytics",
+    tag: "Strategy",
+    colors: ["#5EEAD4", "#67E8F9"],
+    top: "62%",
+    left: "2%",
+    rotate: 6,
+    depth: 0.5,
+  },
+  {
+    title: "Product Strategy 2026",
+    tag: "Roadmap",
+    colors: ["#A78BFA", "#C4B5FD"],
+    top: "12%",
+    left: "78%",
+    rotate: 7,
+    depth: 0.4,
+  },
+  {
+    title: "Financial Forecast",
+    tag: "Finance",
+    colors: ["#FCA5A5", "#FDBA74"],
+    top: "68%",
+    left: "80%",
+    rotate: -5,
+    depth: 0.6,
+  },
 ];
 
 export function Hero() {
@@ -16,10 +49,16 @@ export function Hero() {
   const fade = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   return (
-    <section ref={ref} className="relative flex min-h-screen items-center justify-center pt-32 pb-24">
+    <section
+      ref={ref}
+      className="relative flex min-h-screen items-center justify-center pt-32 pb-24"
+    >
       {/* light beams */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 left-1/2 h-[600px] w-[800px] -translate-x-1/2 rounded-full opacity-50 blur-3xl" style={{ background: "var(--gradient-aqua)" }} />
+        <div
+          className="absolute -top-40 left-1/2 h-[600px] w-[800px] -translate-x-1/2 rounded-full opacity-50 blur-3xl"
+          style={{ background: "var(--gradient-aqua)" }}
+        />
         <Particles />
       </div>
 
@@ -28,7 +67,10 @@ export function Hero() {
         <FloatingSlide key={i} slide={s} index={i} scrollProgress={scrollYProgress} />
       ))}
 
-      <motion.div style={{ y: titleY, opacity: fade }} className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+      <motion.div
+        style={{ y: titleY, opacity: fade }}
+        className="relative z-10 mx-auto max-w-4xl px-6 text-center"
+      >
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -69,13 +111,13 @@ export function Hero() {
           transition={{ delay: 0.65, duration: 0.7 }}
           className="mt-10 flex flex-wrap items-center justify-center gap-3"
         >
-          <a
-            href="#chat"
+          <Link
+            to="/chat"
             className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-white shadow-xl shadow-ink/25 transition-all hover:-translate-y-0.5 hover:shadow-2xl"
           >
             Explore intelligence
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
+          </Link>
           <a
             href="#demo"
             className="glass group inline-flex items-center gap-2 rounded-full px-5 py-3.5 text-sm font-medium text-ink transition-all hover:-translate-y-0.5"
@@ -110,7 +152,7 @@ function FloatingSlide({
   index,
   scrollProgress,
 }: {
-  slide: typeof slides[number];
+  slide: (typeof slides)[number];
   index: number;
   scrollProgress: ReturnType<typeof useScroll>["scrollYProgress"];
 }) {
